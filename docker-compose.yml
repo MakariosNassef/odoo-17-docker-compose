@@ -12,13 +12,15 @@ services:
         - ./postgresql:/var/lib/postgresql/data
 
   odoo17:
-    image: odoo:17
+    image: odoo:15
     user: root
     depends_on:
       - db
+    environment:
+      - ODOO_ENTERPRISE=true  # Indicates Enterprise edition (requires license)
     ports:
-      - "10018:8069"
-      - "20018:8072" # live chat
+      - "10019:8069"
+      - "20019:8072" # live chat
     tty: true
     command: --
     environment:
