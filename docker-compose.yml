@@ -16,8 +16,6 @@ services:
     user: root
     depends_on:
       - db
-    environment:
-      - ODOO_ENTERPRISE=true  # Indicates Enterprise edition (requires license)
     ports:
       - "10019:8069"
       - "20019:8072" # live chat
@@ -27,6 +25,7 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo17@2023
+      - ODOO_ENTERPRISE=true  # Indicates Enterprise edition (requires license)
     volumes:
       #- /etc/timezone:/etc/timezone:ro
       #- /etc/localtime:/etc/localtime:ro
